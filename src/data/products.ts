@@ -1,5 +1,7 @@
 // Catalogo de produtos da empresa, com informações detalhadas sobre cada item.
 
+import windowSliding from '../assets/products/window-sliding.jpg'
+
 export type Product = {
   id: number
   name: string
@@ -7,6 +9,8 @@ export type Product = {
   description: string
   details: string[]
   accent: string
+  // opcional enquanto as imagens dos demais produtos não chegam
+  image?: string
 }
 
 export const products: Product[] = [
@@ -18,6 +22,7 @@ export const products: Product[] = [
       'Uma solução elegante para ampliar a entrada de luz e aproveitar melhor os ambientes.',
     details: ['Abertura deslizante', 'Sob medida', 'Alumínio'],
     accent: 'window',
+    image: windowSliding,
   },
   {
     id: 2,

@@ -1,6 +1,10 @@
 // Catalogo de produtos da empresa, com informações detalhadas sobre cada item.
 
 import windowSliding from '../assets/products/window-sliding.jpg'
+import windowAwning from '../assets/products/window-awning.jpg'
+import doorSliding from '../assets/products/door-sliding.jpg'
+import doorSwing from '../assets/products/door-swing.jpg'
+import bathroomBox from '../assets/products/bathroom-box.jpg'
 
 export type Product = {
   id: number
@@ -9,8 +13,7 @@ export type Product = {
   description: string
   details: string[]
   accent: string
-  // opcional enquanto as imagens dos demais produtos não chegam
-  image?: string
+  image: string
 }
 
 export const products: Product[] = [
@@ -32,6 +35,7 @@ export const products: Product[] = [
       'Abertura projetante para ambientes que precisam de ventilação e praticidade.',
     details: ['Alta ventilação', 'Sob medida', 'Alumínio'],
     accent: 'awning',
+    image: windowAwning,
   },
   {
     id: 3,
@@ -41,6 +45,7 @@ export const products: Product[] = [
       'Grandes vãos, linhas limpas e integração entre ambientes internos e externos.',
     details: ['Grandes vãos', 'Sob medida', 'Alumínio'],
     accent: 'sliding-door',
+    image: doorSliding,
   },
   {
     id: 4,
@@ -50,6 +55,7 @@ export const products: Product[] = [
       'Uma solução clássica com acabamento contemporâneo para diferentes projetos.',
     details: ['Abertura tradicional', 'Sob medida', 'Alumínio'],
     accent: 'door',
+    image: doorSwing,
   },
   {
     id: 5,
@@ -59,5 +65,6 @@ export const products: Product[] = [
       'Projeto sob medida pensado para aproveitar o espaço com leveza e funcionalidade.',
     details: ['Vidro temperado', 'Sob medida', 'Acabamento premium'],
     accent: 'bathroom',
+    image: bathroomBox,
   },
 ]

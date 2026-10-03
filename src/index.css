@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #18181b;
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* --------------------------------------------------
+   HERO — arquitetura abstrata
+-------------------------------------------------- */
+
+.hero-architecture {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-window {
+  position: relative;
+  width: 82%;
+  height: 420px;
+  border: 12px solid #27272a;
+  background: #dbe5e7;
+  box-shadow:
+    35px 35px 80px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.hero-glass {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(191, 219, 224, 0.4) 45%,
+      rgba(255, 255, 255, 0.75)
+    );
+}
+
+.hero-frame {
+  position: absolute;
+  background: #27272a;
+}
+
+.hero-frame-1 {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  transform: translateX(-50%);
+}
+
+.hero-frame-2 {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 8px;
+  transform: translateY(-50%);
+}
+
+.hero-frame-3 {
+  width: 70%;
+  height: 4px;
+  right: -15%;
+  bottom: 18%;
+  transform: rotate(-12deg);
+  opacity: 0.35;
+}
+
+.hero-shadow {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 80%;
+  height: 35px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.12);
+  filter: blur(25px);
+}
+
+/* --------------------------------------------------
+   PRODUCT VISUALS
+-------------------------------------------------- */
+
+.architectural-object {
+  position: absolute;
+  inset: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.object-frame {
+  position: relative;
+  width: 78%;
+  height: 75%;
+  border: 8px solid #27272a;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(207, 226, 230, 0.55)
+  );
+  box-shadow: 25px 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+.object-glass {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),
+    transparent 50%
+  );
+}
+
+.object-line {
+  position: absolute;
+  background: #27272a;
+}
+
+.object-line.vertical {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 5px;
+  transform: translateX(-50%);
+}
+
+.object-line.horizontal {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 5px;
+  transform: translateY(-50%);
+}
+
+.architectural-awning .object-frame {
+  transform: perspective(700px) rotateX(-8deg);
+}
+
+.architectural-sliding-door .object-frame {
+  width: 84%;
+  height: 84%;
+}
+
+.architectural-door .object-frame {
+  width: 58%;
+  height: 84%;
+}
+
+.architectural-bathroom .object-frame {
+  width: 70%;
+  height: 82%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.product-visual {
+  transition:
+    transform 500ms ease,
+    box-shadow 500ms ease;
+}
+
+.product-visual:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+}

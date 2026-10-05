@@ -261,7 +261,7 @@ function ProductChapter({
               onClick={() => onSelect(product)}
               className="group mt-10 inline-flex items-center gap-4 rounded-full bg-zinc-950 py-2 pl-6 pr-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-zinc-800"
             >
-              Configurar este projeto
+              Configurar projeto
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-950 transition-transform duration-500 group-hover:translate-x-1">
                 <ArrowRight size={16} />
               </span>

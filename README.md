@@ -1,75 +1,102 @@
-# React + TypeScript + Vite
+# Orçamento digital para esquadrias — demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## O que é
 
-Currently, two official plugins are available:
+Uma experiência digital para empresas de esquadrias que transforma o pedido de
+orçamento do cliente em um processo visual, organizado e estruturado.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Não é um "site bonito". É uma **ferramenta de entrada de orçamento**: o
+cliente monta o pedido sozinho e a empresa recebe tudo pronto para vender.
 
-## React Compiler
+## A dor
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Hoje, para pedir um orçamento, o cliente geralmente precisa:
 
-## Expanding the ESLint configuration
+> mandar mensagem → explicar o que quer → responder perguntas → mandar
+> medidas → mandar foto → esperar → responder mais perguntas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Isso é ruim para os dois lados:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Cliente:** fricção, idas e vindas, demora.
+- **Empresa:** pedido desorganizado, tempo do vendedor perdido e oportunidades
+  que esfriam no caminho.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+A solução organiza o pedido **antes** de ele chegar no vendedor.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## O que vendemos
 
-```
+Não vendemos código. Vendemos uma **experiência de orçamento digital
+personalizada para a empresa**:
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+> cliente entra no site → escolhe o produto → configura → informa medidas →
+> deixa contato → envia a solicitação → empresa recebe tudo organizado
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Por que pagariam
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Porque reduz a fricção para o cliente pedir orçamento e entrega uma
+solicitação muito mais estruturada para a empresa comercializar.
+
+Se isso economiza tempo do vendedor e/ou aumenta a conversão de contatos em
+orçamentos, tem valor financeiro. **Essa é a hipótese que o demo testa.**
+
+## O demo
 
 ```
+Catálogo
+  ↓
+Produto
+  ↓
+Configuração   (medidas, quantidade, material, cor, cidade, fotos de referência)
+  ↓
+Dados          (nome, WhatsApp, e-mail)
+  ↓
+Revisão
+  ↓
+Solicitar orçamento
+  ↓
+Empresa recebe uma solicitação estruturada no WhatsApp
+```
+
+Ao enviar, o cliente vê a confirmação com o número do protocolo, e o WhatsApp
+abre com a mensagem pronta para a empresa, por exemplo:
+
+```
+*Nova solicitação de orçamento — EP-4K2QZ*
+
+*Produto:* Janela de correr (Janelas)
+*Medidas:* 1.200 × 1.000 mm
+*Quantidade:* 02 unidades
+*Material:* Alumínio
+*Cor:* Preto
+*Cidade:* Campinas
+
+*Contato*
+Nome: Maria Souza
+WhatsApp: (19) 99999-0000
+```
+
+As fotos de referência aparecem no site, mas o link do WhatsApp não consegue
+anexá-las: a mensagem informa só quantas foram enviadas.
+
+## Rodando localmente
+
+```bash
+npm install
+npm run dev
+```
+
+### Número da empresa
+
+Defina o WhatsApp que recebe as solicitações num arquivo `.env.local`, só com
+dígitos e o DDI:
+
+```bash
+VITE_WHATSAPP_NUMBER=5519999990000
+```
+
+Sem essa variável, o WhatsApp abre e pede para escolher o contato. Isso
+funciona para apresentar, mas não para uso real.
+
+## Stack
+
+React 19, TypeScript, Vite, Tailwind CSS 4, Framer Motion e Lucide.

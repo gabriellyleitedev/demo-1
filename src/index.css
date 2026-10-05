@@ -29,15 +29,19 @@ body {
   min-width: 320px;
 }
 
-button,
-a,
-input,
-select {
-  font: inherit;
-}
+/* na camada base para não sobrescrever as classes utilitárias do Tailwind */
+@layer base {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
 
-button {
-  cursor: pointer;
+  button {
+    cursor: pointer;
+  }
 }
 
 /* --------------------------------------------------
